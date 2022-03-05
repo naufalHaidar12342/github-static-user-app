@@ -2,18 +2,28 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/kartu_profil"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="6dp">
+    android:layout_marginLeft="16dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginRight="16dp"
+    android:layout_marginBottom="4dp"
+    app:cardBackgroundColor="#1E293B"
+    app:cardCornerRadius="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="8dp">
 
         <ImageView
             android:id="@+id/image_user_profile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -21,44 +31,47 @@
 
         <TextView
             android:id="@+id/textview_user_fullname"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="26dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="160dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="36dp"
             android:text="TextView"
+            android:textColor="#FFFFFF"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/image_user_profile"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView_user_follower"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="52dp"
+            android:layout_marginStart="24dp"
             android:text="TextView"
+            android:textColor="#FFFFFF"
             app:drawableStartCompat="@drawable/ic_baseline_people_24"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/textView_user_following"
-            app:layout_constraintHorizontal_bias="0.953"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/image_user_profile"
             app:layout_constraintTop_toBottomOf="@+id/textview_user_fullname"
-            app:layout_constraintVertical_bias="0.928" />
+            app:layout_constraintVertical_bias="0.242" />
 
         <TextView
             android:id="@+id/textView_user_following"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="13dp"
-            android:layout_marginEnd="60dp"
-            android:layout_marginBottom="52dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginBottom="20dp"
             android:text="TextView"
+            android:textColor="#FFFFFF"
             app:drawableStartCompat="@drawable/ic_baseline_star_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textview_user_fullname"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/image_user_profile"
+            app:layout_constraintTop_toBottomOf="@+id/textView_user_follower"
             app:layout_constraintVertical_bias="0.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

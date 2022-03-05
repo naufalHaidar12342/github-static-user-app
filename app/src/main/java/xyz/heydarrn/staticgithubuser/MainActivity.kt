@@ -1,7 +1,9 @@
 package xyz.heydarrn.staticgithubuser
 
+import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import xyz.heydarrn.staticgithubuser.databinding.ActivityMainBinding
 import java.util.ArrayList
@@ -54,7 +56,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun showRecyclerList(){
-        mainActivityBinding.recyclerViewGithubUser.layoutManager=LinearLayoutManager(this)
+        //jika handphone dalam posisi landscape/tiduran, layout akan menjadi grid
+        if (applicationContext.resources.configuration.orientation==Configuration.ORIENTATION_LANDSCAPE){
+            mainActivityBinding.recyclerViewGithubUser.layoutManager=GridLayoutManager(this,2)
+        }else{
+            mainActivityBinding.recyclerViewGithubUser.layoutManager=LinearLayoutManager(this)
+
+        }
         val listGithubUserAdapter=ListGithubUserAdapter(list)
         mainActivityBinding.recyclerViewGithubUser.adapter=listGithubUserAdapter
     }

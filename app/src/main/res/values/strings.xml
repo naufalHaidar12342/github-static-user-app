@@ -103,4 +103,7 @@
         <item>@drawable/user9</item>
         <item>@drawable/user10</item>
     </integer-array>
+
+    <string name="follower_text">%1$s follower</string>
+    <string name="following_text">%1$s following</string>
 </resources>
