@@ -1,5 +1,6 @@
 package xyz.heydarrn.staticgithubuser
 
+import android.content.Intent
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -53,8 +54,14 @@ class MainActivity : AppCompatActivity() {
             listPerUser.add(user)
         }
         return listPerUser
+
+
+        //
     }
 
+    /*user-defined function. fungsi ini akan menampilkan recyclerview
+    ke dalam mainActivity. Selain itu, juga memanggil user-defined listener
+    untuk membuka activity kedua ketika salah satu item di klik*/
     fun showRecyclerList(){
         //jika handphone dalam posisi landscape/tiduran, layout akan menjadi grid
         if (applicationContext.resources.configuration.orientation==Configuration.ORIENTATION_LANDSCAPE){
@@ -63,7 +70,42 @@ class MainActivity : AppCompatActivity() {
             mainActivityBinding.recyclerViewGithubUser.layoutManager=LinearLayoutManager(this)
 
         }
+
+        //memanggil adapter bernama ListGithubUserAdapter
         val listGithubUserAdapter=ListGithubUserAdapter(list)
         mainActivityBinding.recyclerViewGithubUser.adapter=listGithubUserAdapter
+
+        val daftarPenggunaGithub=ListGithubUserAdapter(list)
+        mainActivityBinding.recyclerViewGithubUser.adapter=daftarPenggunaGithub
+        daftarPenggunaGithub.setOnItemDiklik(object : ListGithubUserAdapter.OnClickCallback {
+            override fun onItemClicked(dataDikirim: GithubUser) {
+                kirimDataPenggunaGithub(dataDikirim)
+            }
+
+
+        })
+    }
+
+    /*user defined function, dimana fungsi ini akan mengirimkan data ke
+    InfoLengkapUser Activity menggunakan Parcelable*/
+
+    fun kirimDataPenggunaGithub(dataDikirim:GithubUser){
+        val kirimKeInfoLengkap=GithubUser(
+            dataDikirim.username,
+            dataDikirim.name,
+            dataDikirim.avatar,
+            dataDikirim.follower,
+            dataDikirim.following,
+            dataDikirim.company,
+            dataDikirim.location,
+            dataDikirim.repository
+        )
+
+        val kirimDenganIntent=Intent(this@MainActivity,InfoLengkapUser::class.java)
+        kirimDenganIntent.putExtra(InfoLengkapUser.GITHUB_USER,kirimKeInfoLengkap)
+        startActivity(kirimDenganIntent)
+
+
+
     }
 }

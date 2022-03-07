@@ -12,7 +12,12 @@ import com.bumptech.glide.load.engine.Resource
 import com.bumptech.glide.load.resource.SimpleResource
 
 class ListGithubUserAdapter(private val listGithubUser: ArrayList<GithubUser>) : RecyclerView.Adapter<ListGithubUserAdapter.ListViewHolder>() {
+    lateinit var onItemDiklik:OnClickCallback
 
+    @JvmName("setOnItemDiklik1")
+    fun setOnItemDiklik(onItemDiklik:OnClickCallback){
+        this.onItemDiklik=onItemDiklik
+    }
     class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         //komponen di dalam layout tampilan_user (default layout yang dipakai)
         var profilePicture:ImageView=itemView.findViewById(R.id.image_user_profile)
@@ -62,10 +67,16 @@ class ListGithubUserAdapter(private val listGithubUser: ArrayList<GithubUser>) :
 //        holder.followerMini.text="${githubUser.follower} followers"
 //        holder.followingMini.text="${githubUser.following} following"
 
+        //set sebuah listener di tiap viewholder, ketika viewholder di bind ke recyclerview
+        holder.itemView.setOnClickListener { onItemDiklik.onItemClicked(listGithubUser[holder.adapterPosition]) }
+
     }
 
     override fun getItemCount(): Int = listGithubUser.size
 
+    interface OnClickCallback{
+        fun onItemClicked(dataDikirim:GithubUser)
+    }
 
 
 
