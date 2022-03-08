@@ -106,4 +106,12 @@
 
     <string name="follower_text">%1$s follower</string>
     <string name="following_text">%1$s following</string>
+    <string name="placeholder_username">/@lorem</string>
+    <string name="placeholder_fullname">lorem ipsum</string>
+    <string name="placeholder_follower">123 follower</string>
+    <string name="placeholder_following">456 following</string>
+    <string name="placeholder_info_repository">789 repository</string>
+    <string name="placeholder_info_company">Lorem,Tbk</string>
+    <string name="placeholder_info_location">lorem ipsum</string>
+    <string name="image_description">Profile picture of Github user</string>
 </resources>
