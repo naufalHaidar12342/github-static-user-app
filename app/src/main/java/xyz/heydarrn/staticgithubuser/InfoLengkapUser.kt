@@ -33,11 +33,11 @@ class InfoLengkapUser : AppCompatActivity() {
             .circleCrop()
             .into(bindingInfoLengkap.infoUserImage)
         bindingInfoLengkap.infoFullname.text=kiriman.name
-        bindingInfoLengkap.infoUsername.text="@${kiriman.username}"
+        bindingInfoLengkap.infoUsername.text=resources.getString(R.string.username_text,kiriman.username)
 
-        bindingInfoLengkap.infoFollower.text="${kiriman.follower} followers"
-        bindingInfoLengkap.infoFollowing.text="${kiriman.following} following"
-        bindingInfoLengkap.infoRepository.text="${kiriman.repository} repository"
+        bindingInfoLengkap.infoFollower.text=resources.getString(R.string.follower_text,kiriman.follower)
+        bindingInfoLengkap.infoFollowing.text=resources.getString(R.string.following_text,kiriman.following)
+        bindingInfoLengkap.infoRepository.text=resources.getString(R.string.repository_text,kiriman.repository)
 
         bindingInfoLengkap.infoCompany.text=kiriman.company
         bindingInfoLengkap.infoLocation.text=kiriman.location
