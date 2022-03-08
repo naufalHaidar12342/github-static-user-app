@@ -16,17 +16,17 @@ class InfoLengkapUser : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_info_lengkap_user)
 
-        //
+        //memanggil viewBinding milik ActivityInfoLengkapuser
         bindingInfoLengkap= ActivityInfoLengkapUserBinding.inflate(layoutInflater)
         setContentView(bindingInfoLengkap.root)
 
-        //
+        //menerima kiriman data dari MainActivity
         val dataDiterima=intent.getParcelableExtra<GithubUser>(GITHUB_USER) as GithubUser
         setTampilan(dataDiterima)
 
 
     }
-
+    /*function untuk setText dan image yang digunakan pada activity ini*/
     fun setTampilan(kiriman:GithubUser){
         Glide.with(this)
             .load(kiriman.avatar)

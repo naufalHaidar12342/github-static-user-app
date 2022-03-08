@@ -17,9 +17,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //memanggil view binding milik MainActivity
         mainActivityBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mainActivityBinding.root)
 
+        //set recyclerview untuk ditampilkan ke activity_main.xml
         mainActivityBinding.recyclerViewGithubUser.setHasFixedSize(true)
         list.addAll(listUsers)
         showRecyclerList()
