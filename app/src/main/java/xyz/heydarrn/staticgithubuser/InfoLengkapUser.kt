@@ -23,8 +23,6 @@ class InfoLengkapUser : AppCompatActivity() {
         //menerima kiriman data dari MainActivity
         val dataDiterima=intent.getParcelableExtra<GithubUser>(GITHUB_USER) as GithubUser
         setTampilan(dataDiterima)
-
-
     }
     /*function untuk setText dan image yang digunakan pada activity ini*/
     fun setTampilan(kiriman:GithubUser){
@@ -32,15 +30,17 @@ class InfoLengkapUser : AppCompatActivity() {
             .load(kiriman.avatar)
             .circleCrop()
             .into(bindingInfoLengkap.infoUserImage)
-        bindingInfoLengkap.infoFullname.text=kiriman.name
-        bindingInfoLengkap.infoUsername.text=resources.getString(R.string.username_text,kiriman.username)
+        bindingInfoLengkap.apply {
+            infoFullname.text=kiriman.name
+            infoUsername.text=resources.getString(R.string.username_text,kiriman.username)
 
-        bindingInfoLengkap.infoFollower.text=resources.getString(R.string.follower_text,kiriman.follower)
-        bindingInfoLengkap.infoFollowing.text=resources.getString(R.string.following_text,kiriman.following)
-        bindingInfoLengkap.infoRepository.text=resources.getString(R.string.repository_text,kiriman.repository)
+            infoFollower.text=resources.getString(R.string.follower_text,kiriman.follower)
+            infoFollowing.text=resources.getString(R.string.following_text,kiriman.following)
+            infoRepository.text=resources.getString(R.string.repository_text,kiriman.repository)
 
-        bindingInfoLengkap.infoCompany.text=kiriman.company
-        bindingInfoLengkap.infoLocation.text=kiriman.location
+            infoCompany.text=kiriman.company
+            infoLocation.text=kiriman.location
+        }
     }
 
 

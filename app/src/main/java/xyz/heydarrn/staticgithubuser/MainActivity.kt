@@ -11,7 +11,7 @@ import java.util.ArrayList
 
 class MainActivity : AppCompatActivity() {
     lateinit var mainActivityBinding:ActivityMainBinding
-    val list=ArrayList<GithubUser>()
+    private val list=ArrayList<GithubUser>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         mainActivityBinding.recyclerViewGithubUser.setHasFixedSize(true)
         list.addAll(listUsers)
         showRecyclerList()
+
     }
 
     val listUsers:ArrayList<GithubUser>
@@ -54,12 +55,12 @@ class MainActivity : AppCompatActivity() {
                 repository = repo[i]
             )
             listPerUser.add(user)
+
         }
+        fotoUser.recycle()
         return listPerUser
-
-
-        //
     }
+
 
     /*user-defined function. fungsi ini akan menampilkan recyclerview
     ke dalam mainActivity. Selain itu, juga memanggil user-defined listener
@@ -83,8 +84,6 @@ class MainActivity : AppCompatActivity() {
             override fun onItemClicked(dataDikirim: GithubUser) {
                 kirimDataPenggunaGithub(dataDikirim)
             }
-
-
         })
     }
 
@@ -106,8 +105,5 @@ class MainActivity : AppCompatActivity() {
         val kirimDenganIntent=Intent(this@MainActivity,InfoLengkapUser::class.java)
         kirimDenganIntent.putExtra(InfoLengkapUser.GITHUB_USER,kirimKeInfoLengkap)
         startActivity(kirimDenganIntent)
-
-
-
     }
 }

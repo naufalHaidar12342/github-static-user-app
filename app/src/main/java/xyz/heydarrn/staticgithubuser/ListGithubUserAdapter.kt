@@ -34,7 +34,7 @@ class ListGithubUserAdapter(private val listGithubUser: ArrayList<GithubUser>) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
-        var view:View
+        val view:View
 //        view = if (parent.context.resources.configuration.orientation==Configuration.ORIENTATION_LANDSCAPE){
 //            LayoutInflater.from(parent.context).inflate(R.layout.tampilan_user_mini,parent,false)
 //        }else{
@@ -55,8 +55,8 @@ class ListGithubUserAdapter(private val listGithubUser: ArrayList<GithubUser>) :
 
         //set text menggunakan text property milik class TextView
         holder.fullName.text=githubUser.name
-        holder.followers.text="${githubUser.follower} followers"
-        holder.following.text="${githubUser.following} following"
+        holder.followers.text=holder.itemView.context.getString(R.string.follower_text,githubUser.follower)
+        holder.following.text=holder.itemView.context.getString(R.string.following_text,githubUser.following)
 
         //untuk layout mini
 //        Glide.with(holder.itemView.context)
@@ -68,8 +68,9 @@ class ListGithubUserAdapter(private val listGithubUser: ArrayList<GithubUser>) :
 //        holder.followingMini.text="${githubUser.following} following"
 
         //set sebuah listener di tiap viewholder, ketika viewholder di bind ke recyclerview
-        holder.itemView.setOnClickListener { onItemDiklik.onItemClicked(listGithubUser[holder.adapterPosition]) }
-
+        holder.itemView.setOnClickListener {
+            onItemDiklik.onItemClicked(listGithubUser[holder.adapterPosition])
+        }
     }
 
     override fun getItemCount(): Int = listGithubUser.size
