@@ -53,7 +53,7 @@ class ListGithubUserAdapter(private val listGithubUser: ArrayList<GithubUser>) :
             .circleCrop()
             .into(holder.profilePicture)
         //set text menggunakan text property milik class TextView
-        //kini menggunakan lambda receiver
+        //kini menggunakan lambda function
         holder.apply {
             fullName.text=githubUser.name
             followers.text=holder.itemView.context.getString(R.string.follower_text,githubUser.follower)
