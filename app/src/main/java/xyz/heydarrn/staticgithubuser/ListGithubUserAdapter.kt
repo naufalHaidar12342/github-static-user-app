@@ -52,12 +52,13 @@ class ListGithubUserAdapter(private val listGithubUser: ArrayList<GithubUser>) :
             .load(githubUser.avatar)
             .circleCrop()
             .into(holder.profilePicture)
-
         //set text menggunakan text property milik class TextView
-        holder.fullName.text=githubUser.name
-        holder.followers.text=holder.itemView.context.getString(R.string.follower_text,githubUser.follower)
-        holder.following.text=holder.itemView.context.getString(R.string.following_text,githubUser.following)
-
+        //kini menggunakan lambda receiver
+        holder.apply {
+            fullName.text=githubUser.name
+            followers.text=holder.itemView.context.getString(R.string.follower_text,githubUser.follower)
+            following.text=holder.itemView.context.getString(R.string.following_text,githubUser.following)
+        }
         //untuk layout mini
 //        Glide.with(holder.itemView.context)
 //            .load(githubUser.avatar)
